@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+    color: #333;
+    background-image: url("../assets/image/bg.jpg");
+    background-size: cover;
+    /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita como mosaico */
+    background-position: center center;
+    /* Centra la imagen en la pantalla */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 10px 0;
+}
+
+nav button {
+    border-radius: 25px;
+    background-color: #81a7c0;
+    color: rgb(4, 3, 3);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #5db0fd;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    /* Usa flexbox para el layout */
+    flex: 1;
+    /* Ocupa todo el espacio disponible */
+    margin: 20px;
+    /* Margen externo */
+    justify-content: space-between;
+    /* Espacio entre el contenido y el aside */
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    /* Mantén el 50% de ancho */
+    margin: 20px 0 20px auto;
+    /* Aplica margen auto a la izquierda para empujar más hacia la derecha */
+    justify-content: space-between;
+}
+
+.anchoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Contenido de los drones */
+/* Contenido de los drones */
+.contenedor1,
+.contenedor2,
+.contenedor3 {
+    background-color: #eaeaea79;
+    /* Color de fondo del contenedor */
+    border: 1px solid #ccc;
+    /* Borde del contenedor */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    margin: 10px;
+    /* Margen externo */
+    padding: 10px;
+    /* Espaciado interno */
+    flex: 1 1 calc(30% - 20px);
+    /* Tamaño responsivo: 3 elementos por fila */
+}
+
+/* Ajusta el ancho de las imágenes dentro de los contenedores */
+.contenedor1 img,
+.contenedor2 img,
+.contenedor3 img {
+    align-items: center;
+    max-width: 100%;
+    /* Ajusta las imágenes al ancho del contenedor */
+    height: auto;
+    /* Mantiene la proporción de las imágenes */
+}
+
+/* Estilo del aside */
+aside {
+    background-color: #eaeaea76;
+    /* Color de fondo del aside */
+    border: 1px solid #ccc;
+    /* Borde del aside */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    flex: 0 0 300px;
+    /* Ancho fijo del aside (puedes ajustar esto) */
+    padding: 10px;
+    /* Espaciado interno */
+    display: flex;
+    /* Usa flexbox para centrar el contenido del aside */
+    flex-direction: column;
+    /* Alinea los elementos en columna */
+}
+
+/* Asegúrate de que las imágenes en el aside se centren */
+aside img {
+    display: block;
+    /* Cambia el comportamiento de la imagen */
+    max-width: 100%;
+    /* Asegura que la imagen no se desborde */
+    height: auto;
+    /* Mantiene las proporciones */
+    margin: 10px auto;
+    /* Margen vertical y horizontal para centrar imágenes */
+}
+
+/* Estilo del footer */
+footer {
+    text-align: center;
+    /* Centra el contenido del footer */
+    background-color: #81a7c0;
+    /* Color de fondo del footer */
+    color: white;
+    /* Color del texto */
+    padding: 20px;
+    /* Espaciado interno */
+}
+
+body::-webkit-scrollbar {
+    width: 20px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #628fb8
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(38, 34, 34);
+    border-radius: 5px;
+    border: 2px solid rgb(255, 255, 255);
+    /* para ponerle un padding*/
+}
+
+body::-webkit-scrollbar-button {
+    width: 20px;
+    height: 20px;
+}
+
+body::-webkit-scrollbar-button:vertical:increment {
+    background-image: url('../assets/image/down.jpeg');
+    background-color: #4d6da800;
+}
+
+body::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url('../assets/image/up.jpeg');
+    background-color: #dae2f100;
+}

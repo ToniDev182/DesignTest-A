@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DronVent venta de DronesOnline</title>
+
+    <!-- hoja de estilo externa  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Enlace hoja de estilo -->
+    <link rel="stylesheet" href="css/css.css">
+    <!-- 1 icono favicon -->
+    <link rel="icon" href="assets/ico/bart.png" type="image/png">
+</head>
+
+
+<body>
+    <header>
+        <h1>DronVent</h1>
+    </header>
+    <main>
+        <nav>
+
+            <button>Inicio</button>
+            <button>Categorías</button>
+            <button>Repuestos</button>
+            <button>Cursos</button>
+
+        </nav>
+        <!-- para abrir que funcione el audio no abrir con crome -->
+
+
+        <audio autoplay loop>
+            <source src="assets/audio/bgMusic.mp3" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+
+        <!-- Musica de fondo  de la pagina -->
+        <article class="container">
+            <div class="anchoContainer">
+                <div class="contenido">
+
+                    <!-- Contenido de imagen y texto -->
+                    <div class="contenedor1">
+                        <h3>DJI Phantom 4 Pro</h3>
+                        <img src="assets/image/Edron1.jpg" alt="Dronephant" width="300" height="200">
+                        <p>Un dron muy conocido por su calidad de cámara y facilidad de uso, ideal para fotografía aérea
+                            y videografía.</p>
+                    </div>
+
+                    <div class="contenedor2">
+                        <h3>Parrot Anafi:</h3>
+                        <img src="assets/image/Edron2.jpg" alt="DroneAnafi" width="300" height="200">
+                        <p>Este dron compacto es conocido por su diseño ligero y capacidades de grabación en 4K, además
+                            de su funcionalidad de inclinación de cámara.</p>
+                    </div>
+
+                    <div class="contenedor3">
+                        <h3>DJI Mavic Air 2:</h3>
+                        <img src="assets/image/dron3.jpg" alt="DroneAnafi" width="300" height="200">
+                        <p> Ofrece una cámara de alta calidad y un tiempo de vuelo prolongado, ideal para profesionales
+                            que buscan flexibilidad y rendimiento.</p>
+                    </div>
+                    <div class="contenedor3">
+                        <h3>DJI Mavic Air 2:</h3>
+                        <img src="assets/image/dron4.jpg" alt="DroneAnafi" width="300" height="200">
+                        <p> Ofrece una cámara de alta calidad y un tiempo de vuelo prolongado, ideal para profesionales
+                            que buscan flexibilidad y rendimiento.</p>
+                    </div>
+
+                </div>
+            </div>
+            <aside>
+                <h2>Cursos de piloto</h2>
+                <img src="assets/image/pilotoDron.jpg" alt="">
+                <p>¡Desata tu pasión por la tecnología y la aventura con nuestro Curso de Pilotaje de Drones!
+                    Aprende a volar drones como un profesional en solo unas semanas.</p>
+            </aside>
+        </article>
+
+
+        <!-- scroll integrado con modificaciones  -->
+        <!-- color predominante en la pagina el negro  -->
+        <nav class="mapas">
+            <div id="map" style="width: 100%; height: 400px;"></div>
+        </nav>
+
+    </main>
+
+    <footer>
+
+        <!-- 4 iconos de redes sociales-->
+        <img src="assets/svg/facebook.svg" alt="facebook" width="50" height="50">
+        <img src="assets/svg/instagram.svg" alt="instagram" width="50" height="50">
+        <img src="assets/svg/tik-tok.svg" alt="tik-tok" width="50" height="50">
+        <img src="assets/svg/youtube.svg" alt="youtube" width="50" height="50">
+
+    </footer>
+    <!-- Script para el mapa -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializar el mapa
+        var map = L.map('map').setView([20, 0], 2); // Centra el mapa en el océano para ver mejor las tiendas
+
+        // Capa de OpenStreetMap
+        var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        });
+
+        // Capa de Esri (Imagery)
+        var esriImageryLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 19,
+            attribution: '© Esri'
+        });
+
+        // Capa de CartoDB Positron
+        var cartoPositronLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        });
+
+        // Agrega la capa por defecto (OpenStreetMap)
+        osmLayer.addTo(map);
+
+        // Control de capas
+        var baseLayers = {
+            "OpenStreetMap": osmLayer,
+            "Esri Imagery": esriImageryLayer,
+            "CartoDB Positron": cartoPositronLayer
+        };
+
+        L.control.layers(baseLayers).addTo(map);
+
+        // Marcadores para tiendas de drones
+        var markers = [
+            {
+                name: "DronShop",
+                coords: [40.7128, -74.0060], // Nueva York
+                link: "https://dronshop.com",
+                description: "Tu tienda de drones en el corazón de Nueva York. Ofrecemos una amplia gama de drones y accesorios.",
+                image: "assets/image/dron4.jpg" // Ruta de la imagen que deseas insertar
+            },
+            {
+                name: "Fly High Drones",
+                coords: [34.0522, -118.2437], // Los Ángeles
+                link: "https://flyhighdrones.com",
+                description: "Especialistas en drones de carrera y fotografía. Ven y descubre lo que tenemos para ti.",
+                audio: "assets/audio/bgMusic.mp3" // Ruta del audio que deseas insertar
+            },
+            {
+                name: "Drone World",
+                coords: [51.5074, -0.1278], // Londres
+                link: "https://droneworld.com",
+                description: "La mejor selección de drones en Londres. Ofrecemos asesoría personalizada para tu compra.",
+                youtube: "https://www.youtube.com/embed/jcGJzdb9UVc"
+            }
+        ];
+
+        // Añadir marcadores al mapa
+        markers.forEach(function (marker) {
+            let popupContent = `
+                <strong>${marker.name}</strong><br>
+                ${marker.description}<br>
+                <a href="${marker.link}" target="_blank">Más información</a><br>
+            `;
+
+            if (marker.image) {
+                popupContent += `<img src="${marker.image}" alt="${marker.name}" width="150" height="100"><br>`;
+            }
+
+            if (marker.audio) {
+                popupContent += `
+                    <audio controls>
+                        <source src="${marker.audio}" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio><br>
+                `;
+            }
+
+            if (marker.youtube) {
+                popupContent += `
+                    <iframe width="250" height="140" src="${marker.youtube}" 
+                        title="${marker.name}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe><br>
+                `;
+            }
+
+            L.marker(marker.coords)
+                .addTo(map)
+                .bindPopup(popupContent)
+                .openPopup();
+        });
+    </script>
+</body>
+
+</html>
