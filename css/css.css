@@ -72,7 +72,8 @@ nav button:hover {
 /* Contenido de los drones */
 .contenedor1,
 .contenedor2,
-.contenedor3 {
+.contenedor3,
+.contenedor4 {
     background-color: #eaeaea79;
     /* Color de fondo del contenedor */
     border: 1px solid #ccc;
@@ -90,7 +91,8 @@ nav button:hover {
 /* Ajusta el ancho de las imágenes dentro de los contenedores */
 .contenedor1 img,
 .contenedor2 img,
-.contenedor3 img {
+.contenedor3 img,
+.contenedor4 img {
     align-items: center;
     max-width: 100%;
     /* Ajusta las imágenes al ancho del contenedor */
@@ -168,4 +170,30 @@ body::-webkit-scrollbar-button:vertical:increment {
 body::-webkit-scrollbar-button:vertical:decrement {
     background-image: url('../assets/image/up.jpeg');
     background-color: #dae2f100;
+}
+
+.map-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 400px;
+    /* Altura del contenedor de mapas */
+}
+
+.map {
+    flex: 1;
+    /* Cada mapa ocupará el mismo espacio */
+    margin: 5px;
+    /* Espaciado entre mapas */
+}
+
+#map1,
+#map2,
+#map3 {
+    height: 400px;
+    /* Altura para cada mapa */
+    width: 100%;
+    /* Ancho completo */
+    margin-bottom: 20px;
+    /* Espacio entre los mapas */
 }
